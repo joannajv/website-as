@@ -1,0 +1,55 @@
+     * {
+            font-size: 24px;
+            font-weight: bold;
+            -webkit-font-smoothing: none;
+            text-rendering: optimizeSpeed;
+            line-height: 1em;
+        }
+        div {
+            margin-bottom: 1em;
+            width: 100%;
+        }
+        span {
+            color: purple;
+        }
+
+        @media screen and (min-width: 376px) {
+            * {
+                font-size: 20px;
+                word-spacing: 1em;
+                letter-spacing: 1px;
+            }
+        }
+
+
+        @media screen and (min-width: 600px) {
+            * {
+                font-size: 16px;
+                word-spacing: 2em;
+                letter-spacing: 2px;
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            * {
+                font-size: 12px;
+                word-spacing: 2em;
+                letter-spacing: 3px;
+            }
+        }
+
+        @media screen and (min-width: 1000px) {
+            * {
+                font-size: 6px;
+                word-spacing: 3em;
+                letter-spacing: 4px;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            * {
+                font-size: 3px;
+                word-spacing: 4em;
+                letter-spacing: 5px;
+            }
+        }
