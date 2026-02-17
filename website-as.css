@@ -1,55 +1,149 @@
-     * {
-            font-size: 24px;
-            font-weight: bold;
-            -webkit-font-smoothing: none;
-            text-rendering: optimizeSpeed;
-            line-height: 1em;
-        }
-        div {
-            margin-bottom: 1em;
-            width: 100%;
-        }
-        span {
-            color: purple;
-        }
+@font-face {
+  font-family: 'PPModelPlastic';
+  src: url('./fonts/PPModelPlastic-Super.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-        @media screen and (min-width: 376px) {
-            * {
-                font-size: 20px;
-                word-spacing: 1em;
-                letter-spacing: 1px;
-            }
-        }
+/* Page & Background  */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('water.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+}
+
+/* Duck Container  */
+.duck-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*  Duck Text  */
+.duck-text {
+    margin-top: 1vw;               /* space below duck */
+    font-size: 2vw;                
+    min-font-size: 16px;
+    max-font-size: 40px;
+    color: white;
+    font-family: 'PPModelPlastic', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    /* Optional: slight playful shadow */
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Duck Image */
+.duck {
+    display: inline-block;
+    position: relative;
+    transform-origin: center bottom; 
+}
+
+.duck img {
+    width: 10vw;         /* scales with screen width */
+    height: auto;        /* maintain aspect ratio */
+    max-width: 150px;
+    min-width: 40px;
+    display: block;
+    transition: transform 0.3s ease;
+    will-change: transform; 
+}
 
 
-        @media screen and (min-width: 600px) {
-            * {
-                font-size: 16px;
-                word-spacing: 2em;
-                letter-spacing: 2px;
-            }
-        }
+.duck:hover img {
+    animation: flap 0.8s ease-in-out infinite;
+}
 
-        @media screen and (min-width: 800px) {
-            * {
-                font-size: 12px;
-                word-spacing: 2em;
-                letter-spacing: 3px;
-            }
-        }
+@keyframes flap {
+    0%   { transform: rotate(0deg) translateY(0); }
+    25%  { transform: rotate(-10deg) translateY(-5px); }
+    50%  { transform: rotate(0deg) translateY(-7px); }
+    75%  { transform: rotate(10deg) translateY(-5px); }
+    100% { transform: rotate(0deg) translateY(0); }
+}
 
-        @media screen and (min-width: 1000px) {
-            * {
-                font-size: 6px;
-                word-spacing: 3em;
-                letter-spacing: 4px;
-            }
-        }
+/* ------------------ Quacks ------------------ */
+.quack {
+    font-family: 'PPModelPlastic', sans-serif;
+    font-weight: bold;
+    color: yellow;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    font-size: 2vw;       /* scales with screen */
+    min-font-size: 16px;
+    max-font-size: 40px;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
 
-        @media screen and (min-width: 1200px) {
-            * {
-                font-size: 3px;
-                word-spacing: 4em;
-                letter-spacing: 5px;
-            }
-        }
+/* Quack positions */
+.quack1 { top: -20px; left: 50%; }
+.quack2 { top: -25px; left: 30%; }
+.quack3 { top: -25px; left: 70%; }
+.quack4 { top: -10px; left: 20%; }
+.quack5 { top: -15px; left: 80%; }
+
+/* Quack animations on hover */
+.duck:hover .quack1 { opacity: 1; animation: quackPop1 1s ease forwards; }
+.duck:hover .quack2 { opacity: 1; animation: quackPop2 1s ease forwards; }
+.duck:hover .quack3 { opacity: 1; animation: quackPop3 1s ease forwards; }
+.duck:hover .quack4 { opacity: 1; animation: quackPop4 1s ease forwards; }
+.duck:hover .quack5 { opacity: 1; animation: quackPop5 1s ease forwards; }
+
+/* Quack keyframes */
+@keyframes quackPop1 {
+    0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+    50%  { transform: translateX(-60%) translateY(-25px) scale(1.2) rotate(-10deg); }
+    100% { transform: translateX(-70%) translateY(-50px) scale(1) rotate(5deg); opacity: 0; }
+}
+
+@keyframes quackPop2 {
+    0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+    50%  { transform: translateX(-40%) translateY(-20px) scale(1.1) rotate(5deg); }
+    100% { transform: translateX(-30%) translateY(-45px) scale(1) rotate(-5deg); opacity: 0; }
+}
+
+@keyframes quackPop3 {
+    0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+    50%  { transform: translateX(-45%) translateY(-30px) scale(1.2) rotate(10deg); }
+    100% { transform: translateX(-55%) translateY(-55px) scale(1) rotate(-10deg); opacity: 0; }
+}
+
+@keyframes quackPop4 {
+    0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+    50%  { transform: translateX(-60%) translateY(-15px) scale(1.1) rotate(-5deg); }
+    100% { transform: translateX(-70%) translateY(-35px) scale(1) rotate(5deg); opacity: 0; }
+}
+
+@keyframes quackPop5 {
+    0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+    50%  { transform: translateX(-35%) translateY(-25px) scale(1.2) rotate(15deg); }
+    100% { transform: translateX(-45%) translateY(-55px) scale(1) rotate(-15deg); opacity: 0; }
+}
+
+
+@media (max-width: 600px) {
+    .duck img { width: 20vw; }
+    .duck-text { font-size: 3vw; }
+    .quack { font-size: 3vw; }
+}
+
+@media (min-width: 1200px) {
+    .duck img { width: 8vw; }
+    .duck-text { font-size: 1.5vw; }
+    .quack { font-size: 1.5vw; }
+}
+
+
+
